@@ -11,11 +11,10 @@ GameObject:
   - component: {fileID: 5540600316997761210}
   - component: {fileID: 5540600316997761211}
   - component: {fileID: 5540600316997761213}
-  - component: {fileID: 5540600316997761212}
-  - component: {fileID: 5540600316997761215}
+  - component: {fileID: 5942541388879886999}
   m_Layer: 0
   m_Name: FirstPersonPlayer
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -79,35 +78,19 @@ MonoBehaviour:
   groundMaks:
     serializedVersion: 2
     m_Bits: 64
---- !u!114 &5540600316997761212
-MonoBehaviour:
+--- !u!65 &5942541388879886999
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5540600316997761208}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26914e7f6a14be14a9ca3d44c1511b71, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isCrouched: 0
-  controller: {fileID: 5540600316997761211}
-  crouchDistance: 0.76
-  crouchingSpeed: 1.2
-  isChangingPosition: 0
---- !u!114 &5540600316997761215
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5540600316997761208}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 71d52ae558a62e544a121aec05a03ffc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 2
+  m_Size: {x: 1.227671, y: 3.5386548, z: 1.2355851}
+  m_Center: {x: 0.0031901598, y: -0.11274934, z: 0.0013661982}
 --- !u!1 &5540600317611397503
 GameObject:
   m_ObjectHideFlags: 0
@@ -167,7 +150,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f29c247cedee1944cb0b88747e228034, type: 2}
+  - {fileID: 2100000, guid: 98d83094bd5c44544bed50a31dd83c79, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
