@@ -22,6 +22,10 @@ public class Enemy : MonoBehaviour
     public float sightRange;
     public bool playerInSightRange;
 
+    //Stun
+    public float StunTime;
+    public bool stuned;
+
     private void start()
     {
         player = GameObject.Find("PlayerObj").transform;
@@ -35,6 +39,26 @@ public class Enemy : MonoBehaviour
 
         if (!playerInSightRange) Patroling();
         if (playerInSightRange) ChasePlayer();
+
+
+        if (stuned)
+        {
+            agent.speed = 0;
+            agent.angularSpeed = 0;
+            StunTime -= Time.deltaTime;
+            if (StunTime <= 0)
+            {
+                agent.speed = 10f;
+                agent.angularSpeed = 120;
+                StunTime = 0;
+                stuned = false;
+                
+            }
+        }
+
+
+
+
     }
 
     private void Patroling()
@@ -81,5 +105,18 @@ public class Enemy : MonoBehaviour
             Destroy(collision.gameObject);
         }
 
+      
+
+
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "ElcBullet")
+        {
+            Destroy(other.gameObject);
+            stuned = true;
+            StunTime = 5;
+        }
     }
 }
