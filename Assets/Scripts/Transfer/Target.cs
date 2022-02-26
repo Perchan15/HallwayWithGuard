@@ -12,6 +12,7 @@ public class Target : MonoBehaviour
         {
             Destroy(other.gameObject);
             scoreScript.ScoreValue += 1;
+            scoreScript.score.text =scoreScript.ScoreValue.ToString();
             Destroy(gameObject);
         }
 
