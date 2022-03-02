@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class LightnigGunScript : MonoBehaviour
@@ -34,6 +35,9 @@ public class LightnigGunScript : MonoBehaviour
     private GameObject muzzleFlash;
     private TextMeshProUGUI ammunitionDisplay;
 
+    //cooldown stuff
+    public Image gunCooldown;
+    public Text ElecDisplay;
 
     //bug fixing :D
     public bool allowInvoke = true;
@@ -43,6 +47,11 @@ public class LightnigGunScript : MonoBehaviour
         //make sure magazine is full
         bulletsLeft = magazineSize;
         readyToShoot = true;
+    }
+
+    private void Start()
+    {
+        ElecDisplay.gameObject.SetActive(false);
     }
 
     private void Update()
@@ -77,6 +86,10 @@ public class LightnigGunScript : MonoBehaviour
     private void Shoot()
     {
         readyToShoot = false;
+
+        //Starts cooldown
+        gunCooldown.gameObject.SetActive(false);
+        ElecDisplay.gameObject.SetActive(true);
 
         //Find the exact hit position using a raycast
         Ray ray = fpsCam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0)); //Just a ray through the middle of your current view
@@ -122,7 +135,7 @@ public class LightnigGunScript : MonoBehaviour
             allowInvoke = false;
 
             //Add recoil to player (should only be called once)
-            playerRb.AddForce(-directionWithSpread.normalized * recoilForce, ForceMode.Impulse);
+            //playerRb.AddForce(-directionWithSpread.normalized * recoilForce, ForceMode.Impulse);
         }
 
         //if more than one bulletsPerTap make sure to repeat shoot function
@@ -134,6 +147,10 @@ public class LightnigGunScript : MonoBehaviour
         //Allow shooting and invoking again
         readyToShoot = true;
         allowInvoke = true;
+
+        //Ends cooldown
+        gunCooldown.gameObject.SetActive(true);
+        ElecDisplay.gameObject.SetActive(false);
     }
 
     private void Reload()

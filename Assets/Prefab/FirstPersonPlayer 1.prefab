@@ -365,14 +365,13 @@ MonoBehaviour:
   bullet: {fileID: 7466139910182470517, guid: 88b92ee11b836c64889a637066b19f24, type: 3}
   shootForce: 100
   upwardForce: 0
-  timeBetweenShooting: 5
-  reloadTime: 5
+  timeBetweenShooting: 2
   magazineSize: 100
   bulletsPerTap: 1
   allowButtonHold: 0
-  reloading: 0
   fpsCam: {fileID: 4611016232211155733}
   attackPoint: {fileID: 8293858612507685120}
+  gunCooldown: {fileID: 0}
   allowInvoke: 1
 --- !u!114 &8293858612349976459
 MonoBehaviour:
@@ -395,6 +394,7 @@ MonoBehaviour:
   allowButtonHold: 0
   fpsCam: {fileID: 4611016232211155733}
   attackPoint: {fileID: 8293858612507685120}
+  gunCooldown: {fileID: 0}
   allowInvoke: 1
 --- !u!114 &8293858612349976457
 MonoBehaviour:

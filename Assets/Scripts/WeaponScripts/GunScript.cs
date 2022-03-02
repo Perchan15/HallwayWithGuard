@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class GunScript : MonoBehaviour
@@ -12,8 +13,8 @@ public class GunScript : MonoBehaviour
     public float shootForce, upwardForce;
 
     //Gun stats
-    public float timeBetweenShooting, reloadTime;
-    private float spread, timeBetweenShots;
+    public float timeBetweenShooting;
+        private float spread, reloadTime, timeBetweenShots;
     public int magazineSize, bulletsPerTap;
     public bool allowButtonHold;
 
@@ -24,8 +25,7 @@ public class GunScript : MonoBehaviour
     private float recoilForce;
 
     //bools
-    bool shooting, readyToShoot;
-    public bool reloading;
+    bool shooting, readyToShoot, reloading;
 
     //Reference
     public Camera fpsCam;
@@ -34,7 +34,10 @@ public class GunScript : MonoBehaviour
     //Graphics
     private GameObject muzzleFlash;
     private TextMeshProUGUI ammunitionDisplay;
-  
+
+    //cooldown stuff
+    public Image gunCooldown;
+    public Text BulletDisplay;
 
     //bug fixing :D
     public bool allowInvoke = true;
@@ -78,6 +81,10 @@ public class GunScript : MonoBehaviour
     private void Shoot()
     {
         readyToShoot = false;
+
+        //Starts cooldown
+        gunCooldown.gameObject.SetActive(false);
+        BulletDisplay.gameObject.SetActive(true);
 
         //Find the exact hit position using a raycast
         Ray ray = fpsCam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0)); //Just a ray through the middle of your current view
@@ -123,7 +130,7 @@ public class GunScript : MonoBehaviour
             allowInvoke = false;
 
             //Add recoil to player (should only be called once)
-            playerRb.AddForce(-directionWithSpread.normalized * recoilForce, ForceMode.Impulse);
+            //playerRb.AddForce(-directionWithSpread.normalized * recoilForce, ForceMode.Impulse);
         }
 
         //if more than one bulletsPerTap make sure to repeat shoot function
@@ -135,6 +142,10 @@ public class GunScript : MonoBehaviour
         //Allow shooting and invoking again
         readyToShoot = true;
         allowInvoke = true;
+
+        //Ends cooldown
+        gunCooldown.gameObject.SetActive(true);
+        BulletDisplay.gameObject.SetActive(false);
     }
 
     private void Reload()
