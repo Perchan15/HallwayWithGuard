@@ -12,8 +12,8 @@ public class GunScript : MonoBehaviour
     public float shootForce, upwardForce;
 
     //Gun stats
-    public float timeBetweenShooting;
-        private float spread, reloadTime, timeBetweenShots;
+    public float timeBetweenShooting, reloadTime;
+    private float spread, timeBetweenShots;
     public int magazineSize, bulletsPerTap;
     public bool allowButtonHold;
 
@@ -24,7 +24,8 @@ public class GunScript : MonoBehaviour
     private float recoilForce;
 
     //bools
-    bool shooting, readyToShoot, reloading;
+    bool shooting, readyToShoot;
+    public bool reloading;
 
     //Reference
     public Camera fpsCam;

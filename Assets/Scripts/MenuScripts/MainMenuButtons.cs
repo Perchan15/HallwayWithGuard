@@ -16,6 +16,7 @@ public class MainMenuButtons : MonoBehaviour
     public Text controlButtonsText;
     public Text creditsText;
     public Text creditsNamesText;
+    public Text objective;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +31,7 @@ public class MainMenuButtons : MonoBehaviour
         controlButtonsText.gameObject.SetActive(false);
         creditsText.gameObject.SetActive(false);
         creditsNamesText.gameObject.SetActive(false);
+        objective.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -52,6 +54,7 @@ public class MainMenuButtons : MonoBehaviour
         controlButtonsText.gameObject.SetActive(true);
         creditsText.gameObject.SetActive(true);
         creditsNamesText.gameObject.SetActive(true);
+        objective.gameObject.SetActive(true);
     }
 
     void ExitClick()
@@ -68,6 +71,7 @@ public class MainMenuButtons : MonoBehaviour
         controlButtonsText.gameObject.SetActive(false);
         creditsText.gameObject.SetActive(false);
         creditsNamesText.gameObject.SetActive(false);
+        objective.gameObject.SetActive(false);
 
         startButton.gameObject.SetActive(true);
         aboutButton.gameObject.SetActive(true);
