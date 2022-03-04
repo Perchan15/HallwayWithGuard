@@ -42,6 +42,10 @@ public class LightnigGunScript : MonoBehaviour
     //bug fixing :D
     public bool allowInvoke = true;
 
+    //audio source
+    [SerializeField]
+    private AudioSource elecSound;
+
     private void Awake()
     {
         //make sure magazine is full
@@ -90,6 +94,9 @@ public class LightnigGunScript : MonoBehaviour
         //Starts cooldown
         gunCooldown.gameObject.SetActive(false);
         ElecDisplay.gameObject.SetActive(true);
+
+        //Plays sound
+        elecSound.Play();
 
         //Find the exact hit position using a raycast
         Ray ray = fpsCam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0)); //Just a ray through the middle of your current view

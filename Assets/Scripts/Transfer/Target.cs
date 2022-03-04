@@ -7,6 +7,7 @@ public class Target : MonoBehaviour
     public ScoreScript scoreScript;
 
     public Animation doorOpen;
+    public AudioSource doorSound;
 
     private GameObject doorPivot;
 
@@ -26,6 +27,9 @@ public class Target : MonoBehaviour
             {
                 doorOpen = doorPivot.GetComponent<Animation>();
                 doorOpen.Play();
+
+                doorSound = doorPivot.GetComponent<AudioSource>();
+                doorSound.Play();
             }
             Destroy(gameObject);
         }

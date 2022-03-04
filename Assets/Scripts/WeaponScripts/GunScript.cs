@@ -42,6 +42,10 @@ public class GunScript : MonoBehaviour
     //bug fixing :D
     public bool allowInvoke = true;
 
+    //audio source
+    [SerializeField]
+    private AudioSource bulletSound;
+
     private void Awake()
     {
         //make sure magazine is full
@@ -85,6 +89,9 @@ public class GunScript : MonoBehaviour
         //Starts cooldown
         gunCooldown.gameObject.SetActive(false);
         BulletDisplay.gameObject.SetActive(true);
+
+        //Play sound
+        bulletSound.Play();
 
         //Find the exact hit position using a raycast
         Ray ray = fpsCam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0)); //Just a ray through the middle of your current view
