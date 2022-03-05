@@ -12,6 +12,8 @@ public class Enemy : MonoBehaviour
 
     public LayerMask whatIsGround, whatIsPlayer;
 
+  
+
     //Patroling
     public Vector3 walkPoint;
     bool walkPointSet;
@@ -41,6 +43,7 @@ public class Enemy : MonoBehaviour
         if (!playerInSightRange) Patroling();
         if (playerInSightRange) ChasePlayer();
 
+       
 
         if (stuned)
         {
@@ -62,7 +65,7 @@ public class Enemy : MonoBehaviour
 
     }
 
-    private void Patroling()
+    public void Patroling()
     {
         if (!walkPointSet) SearchWalkPoint();
 
@@ -87,7 +90,7 @@ public class Enemy : MonoBehaviour
             walkPointSet = true;
     }
 
-    private void ChasePlayer()
+    public void ChasePlayer()
     {
         agent.SetDestination(player.position);
     }

@@ -24,20 +24,15 @@ public class PlayerMovement : MonoBehaviour
 
 
     Vector3 velocity;
-    bool isGrounded;
+    public bool isGrounded;
     bool isCrouching = false;
+
+    public Enemy enemy;
 
     void Start()
     {
        
-
         speed = WalkSpeed;
-
-
-
-
-
-
 
     }
     // Update is called once per frame
@@ -49,7 +44,21 @@ public class PlayerMovement : MonoBehaviour
         if (isGrounded && velocity.y < 0)
         {
             velocity.y = -2f;
+            
         }
+
+        if (isGrounded)
+        {
+            enemy.ChasePlayer();
+        }
+        else
+        {
+            enemy.Patroling();
+        }
+      
+
+
+
 
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
@@ -58,40 +67,6 @@ public class PlayerMovement : MonoBehaviour
 
         controller.Move(move * speed * Time.deltaTime);
 
-        if (Input.GetButtonDown("Jump") && isGrounded)
-        {
-            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
-        }
-
-        //Sprint
-        if (Input.GetKeyDown(KeyCode.LeftShift) && isGrounded)
-        {
-            speed = SprintSpeed;
-        }
-
-        if (Input.GetKeyUp(KeyCode.LeftShift))
-        {
-            speed = WalkSpeed;
-        }
-
-        //Crouch
-        if (Input.GetKeyDown(KeyCode.C))
-        {
-            isCrouching = !isCrouching;
-
-            if (isCrouching == true)
-            {
-                controller.height = 2f;
-                speed = CrouchSpeed;
-                SprintSpeed = SprintSpeed / 2;
-            }
-            else
-            {
-                controller.height = 4;
-                speed = WalkSpeed;
-                SprintSpeed = SprintSpeed * 2;
-            }
-        }
 
 
 

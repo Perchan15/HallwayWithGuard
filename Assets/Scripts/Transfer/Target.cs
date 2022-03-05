@@ -20,6 +20,7 @@ public class Target : MonoBehaviour
     {
         if (other.tag == "Bullet")
         {
+            Destroy(gameObject);
             Destroy(other.gameObject);
             scoreScript.ScoreValue += 1;
             scoreScript.score.text = "Hits: " + scoreScript.ScoreValue.ToString();
@@ -31,7 +32,7 @@ public class Target : MonoBehaviour
                 doorSound = doorPivot.GetComponent<AudioSource>();
                 doorSound.Play();
             }
-            Destroy(gameObject);
+           
         }
 
         if (other.tag == "ElcBullet")
