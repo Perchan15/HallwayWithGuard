@@ -96,6 +96,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreScript: {fileID: 0}
+  doorOpen: {fileID: 0}
+  doorSound: {fileID: 0}
 --- !u!65 &5342267471113772453
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -107,5 +109,5 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.3087249, y: 0.6501573, z: 3.3451242}
-  m_Center: {x: 0.023288967, y: 0.02276477, z: 0.0038850897}
+  m_Size: {x: 3.3087249, y: 1.157541, z: 3.3451242}
+  m_Center: {x: 0.023288965, y: 0.2764566, z: 0.0038850307}

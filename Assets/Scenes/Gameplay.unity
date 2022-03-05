@@ -9078,6 +9078,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Target (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 554943001370125536, guid: 694e6aac17f193f41bacb24c66fe25b4, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 934599266011266650, guid: 694e6aac17f193f41bacb24c66fe25b4, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -21267,6 +21271,10 @@ PrefabInstance:
     - target: {fileID: 5645956153066440145, guid: 8c70e77b825c141409cbf436adc26f16, type: 3}
       propertyPath: m_StoppingDistance
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5645956153066440146, guid: 8c70e77b825c141409cbf436adc26f16, type: 3}
+      propertyPath: m_UseGravity
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c70e77b825c141409cbf436adc26f16, type: 3}
