@@ -40,9 +40,7 @@ public class Enemy : MonoBehaviour
         //Check for sight and attack range
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
 
-        if (!playerInSightRange) Patroling();
-        if (playerInSightRange) ChasePlayer();
-
+     
        
 
         if (stuned)
