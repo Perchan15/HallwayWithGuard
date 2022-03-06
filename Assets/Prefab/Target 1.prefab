@@ -98,6 +98,7 @@ MonoBehaviour:
   scoreScript: {fileID: 0}
   doorOpen: {fileID: 0}
   doorSound: {fileID: 0}
+  woodPoof: {fileID: 5246382808914792567, guid: a6da43e3ec3f94f4590aeac3e7dcf78e, type: 3}
 --- !u!65 &5342267471113772453
 BoxCollider:
   m_ObjectHideFlags: 0

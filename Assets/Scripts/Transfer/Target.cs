@@ -11,6 +11,8 @@ public class Target : MonoBehaviour
 
     private GameObject doorPivot;
 
+    public ParticleSystem woodPoof;
+
     void Start()
     {
         doorPivot = GameObject.Find("DoorPivot");
@@ -19,7 +21,8 @@ public class Target : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Bullet")
-        {
+        {   
+            Instantiate(woodPoof, transform.position, Quaternion.identity);
             Destroy(gameObject);
             Destroy(other.gameObject);
             scoreScript.ScoreValue += 1;

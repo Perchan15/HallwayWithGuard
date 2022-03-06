@@ -25,7 +25,7 @@ public class EndingScript : MonoBehaviour
         }
         else
         {
-            endingText.text = "Failure";
+            endingText.text = "<i>\"Why did you do it?\"</i>";
         }
     }
 
